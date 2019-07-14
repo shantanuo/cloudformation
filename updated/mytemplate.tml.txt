@@ -2,7 +2,7 @@
    "Description":"CloudFormation template to deploy lambda function",
    "Parameters":{
       "s3Bucket":{
-         "Default":"datameetgeo",
+         "Default":"datameetgeobk",
          "Description":"s3 bucket name of the lambda",
          "Type":"String"
       },
@@ -73,7 +73,7 @@
                   "PolicyName":"DailyCostPolicy"
                }
             ],
-            "RoleName":"DailyCostRole"
+            "RoleName":"DailyCostRole1"
          },
          "Type":"AWS::IAM::Role"
       },
