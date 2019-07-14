@@ -1,0 +1,48 @@
+Resources:
+  CFNUser:
+    Type: 'AWS::IAM::User'
+    Properties:
+      UserName: 'restricted2'
+      LoginProfile:
+        Password: 'india1620'
+  CFNAdminGroup:
+    Type: 'AWS::IAM::Group'
+  Admins:
+    Type: 'AWS::IAM::UserToGroupAddition'
+    Properties:
+      GroupName: !Ref CFNAdminGroup
+      Users:
+        - !Ref CFNUser
+  CFNAdminPolicies:
+    Type: 'AWS::IAM::Policy'
+    Properties:
+      PolicyName: CFNAdmins
+      PolicyDocument:
+        Statement:
+          - Effect: Allow
+            Action: '*'
+            Resource: '*'
+            Condition:
+              StringEquals:
+                'aws:RequestedRegion':
+                  - ap-south-1
+                  - us-east-1
+      Groups:
+        - !Ref CFNAdminGroup
+  CFNKeys:
+    Type: 'AWS::IAM::AccessKey'
+    Properties:
+      UserName: !Ref CFNUser
+Outputs:
+  AccessKey:
+    Value: !Ref CFNKeys
+    Description: AWSAccessKeyId of new user
+    Export:
+      Name: accessKey1
+  SecretKey:
+    Value: !GetAtt 
+      - CFNKeys
+      - SecretAccessKey
+    Description: AWSSecretAccessKey of new user
+    Export:
+      Name: secretKey1
