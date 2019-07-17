@@ -16,4 +16,9 @@ Resources:
                   - sg-0ffdbbc6237ba1242
                 AssociatePublicIpAddress: true
             KeyName: dec15a
+            TagSpecifications:
+              - ResourceType: instance
+                Tags:
+                  - Key: Name
+                    Value: Game of Life Test Instance
         Type: maintain
