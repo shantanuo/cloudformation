@@ -1,0 +1,142 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Resources": {
+        "ApiGatewayRestApi": {
+            "Type": "AWS::ApiGateway::RestApi",
+            "Properties": {
+                "Name": {
+                    "Fn::Join": [
+                        "",
+                        [
+                            {
+                                "Ref": "AWS::StackName"
+                            },
+                            "-api"
+                        ]
+                    ]
+                }
+            }
+        },
+        "GatewayRole": {
+            "Type": "AWS::IAM::Role",
+            "Properties": {
+                "AssumeRolePolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": [
+                                    "apigateway.amazonaws.com"
+                                ]
+                            },
+                            "Action": [
+                                "sts:AssumeRole"
+                            ]
+                        }
+                    ]
+                },
+                "Path": "/",
+                "Policies": [
+                    {
+                        "PolicyName": "GatewayRolePolicy",
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Effect": "Allow",
+                                    "Action": [
+                                        "sns:Publish"
+                                    ],
+                                    "Resource": "*"
+                                },
+                                {
+                                    "Effect": "Allow",
+                                    "Action": [
+                                        "logs:PutLogEvents",
+                                        "logs:CreateLogGroup",
+                                        "logs:CreateLogStream"
+                                    ],
+                                    "Resource": "*"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        "ApiGatewayGETMethod": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+                "AuthorizationType": "NONE",
+                "HttpMethod": "GET",
+                "RequestParameters": {
+                    "method.request.querystring.message": false,
+                    "method.request.querystring.subject": false,
+                    "method.request.querystring.topic": false
+                },
+                "Integration": {
+                    "Type": "AWS",
+                    "Credentials": {
+                        "Fn::GetAtt": [
+                            "GatewayRole",
+                            "Arn"
+                        ]
+                    },
+                    "Uri": {
+                        "Fn::Join": [
+                            "",
+                            [
+                                "arn:aws:apigateway:",
+                                {
+                                    "Ref": "AWS::Region"
+                                },
+                                ":sns:action/Publish"
+                            ]
+                        ]
+                    },
+                    "IntegrationHttpMethod": "GET",
+                    "RequestParameters": {
+                        "integration.request.querystring.TopicArn": "method.request.querystring.topic",
+                        "integration.request.querystring.Subject": "method.request.querystring.subject",
+                        "integration.request.querystring.Message": "method.request.querystring.message"
+                    },
+                    "IntegrationResponses": [
+                        {
+                            "StatusCode": 200,
+                            "ResponseTemplates": {
+                                "application/json": "{\"status\":\"OK\"}"
+                            }
+                        }
+                    ]
+                },
+                "MethodResponses": [
+                    {
+                        "StatusCode": 200
+                    }
+                ],
+                "ResourceId": {
+                    "Fn::GetAtt": [
+                        "ApiGatewayRestApi",
+                        "RootResourceId"
+                    ]
+                },
+                "RestApiId": {
+                    "Ref": "ApiGatewayRestApi"
+                }
+            }
+        },
+        "ApiGatewayDeployment": {
+            "Type": "AWS::ApiGateway::Deployment",
+            "DependsOn": [
+                "ApiGatewayGETMethod"
+            ],
+            "Properties": {
+                "RestApiId": {
+                    "Ref": "ApiGatewayRestApi"
+                },
+                "StageName": "prod"
+            }
+        }
+    }
+}
