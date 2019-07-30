@@ -11,7 +11,7 @@ Resources:
     Type: "AWS::ApiGateway::Method"
     Properties:
       AuthorizationType: "NONE"
-      HttpMethod: "GET"
+      HttpMethod: "POST"
       RequestParameters:
         method.request.querystring.mnumber: false
       MethodResponses:
