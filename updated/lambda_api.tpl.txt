@@ -5,27 +5,33 @@ Resources:
   apiGateway:
     Type: "AWS::ApiGateway::RestApi"
     Properties:
-      Name: "my-api"
+      Name: "my-api2"
       Description: "My API"
-
   apiGatewayRootMethod:
     Type: "AWS::ApiGateway::Method"
     Properties:
       AuthorizationType: "NONE"
-      HttpMethod: "POST"
+      HttpMethod: "GET"
       RequestParameters:
         method.request.querystring.mnumber: false
+      MethodResponses:
+      - StatusCode: 200
+        ResponseModels: { "application/json": "Empty" }
       Integration:
         IntegrationHttpMethod: "POST"
-        Type: "AWS_PROXY"
+        RequestTemplates:
+          application/json: "{\"mnumber\": \"$input.params('mnumber')\"}"
+        PassthroughBehavior: WHEN_NO_TEMPLATES
+        ContentHandling: CONVERT_TO_TEXT
+        Type: "AWS"
+        IntegrationResponses:
+          - StatusCode: 200
         Uri: !Sub
           - "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${lambdaArn}/invocations"
           - lambdaArn: !GetAtt "lambdaFunction.Arn"
+
       ResourceId: !GetAtt "apiGateway.RootResourceId"
       RestApiId: !Ref "apiGateway"
-      RequestParameters:
-        integration.request.querystring.mnumber: "method.request.querystring.mnumber"
-
 
   apiGatewayDeployment:
     Type: "AWS::ApiGateway::Deployment"
@@ -46,7 +52,7 @@ Resources:
             code=str(mnumber)[-10:][:5]
             return mydic[code]
       Description: "My function"
-      FunctionName: mylambdafn
+      FunctionName: mylambdafn2
       Handler: "index.handler"
       MemorySize: 128
       Role: !GetAtt "lambdaIAMRole.Arn"
@@ -59,7 +65,7 @@ Resources:
       Action: "lambda:InvokeFunction"
       FunctionName: !GetAtt "lambdaFunction.Arn"
       Principal: "apigateway.amazonaws.com"
-      SourceArn: !Sub "arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${apiGateway}/*/POST/"
+      SourceArn: !Sub "arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${apiGateway}/*/GET/"
 
   lambdaIAMRole:
     Type: "AWS::IAM::Role"
@@ -83,13 +89,13 @@ Resources:
                   - "logs:PutLogEvents"
                 Effect: "Allow"
                 Resource:
-                  - !Sub "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/mylambdafn:*"
+                  - !Sub "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/mylambdafn2:*"
           PolicyName: "lambda"
 
   lambdaLogGroup:
     Type: "AWS::Logs::LogGroup"
     Properties:
-      LogGroupName: !Sub "/aws/lambda/mylambdafn"
+      LogGroupName: !Sub "/aws/lambda/mylambdafn2"
       RetentionInDays: 90
 
 Outputs:
@@ -98,5 +104,4 @@ Outputs:
 
   lambdaArn:
     Value: !GetAtt "lambdaFunction.Arn"
-
 
