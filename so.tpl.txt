@@ -1,24 +1,55 @@
 {  
+   "Parameters":{
+      "LatestAmiId":{
+         "Type":"AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>",
+         "Default":"/aws/service/ami-amazon-linux-latest/amzn-ami-hvm-x86_64-ebs"
+      },
+      "OksoftSG":{
+         "Type":"AWS::EC2::SecurityGroup::Id"
+      },
+      "KeyName":{
+         "Type":"AWS::EC2::KeyPair::KeyName"
+      },
+      "MyInstanceType":{
+         "Type":"String",
+         "Default":"t2.medium",
+         "AllowedValues":[
+            "t2.medium",
+            "m3.medium",
+            "i3.xlarge"
+         ]
+      }
+   },
+
    "Resources":{  
       "MySpotFleet":{  
          "Type":"AWS::EC2::SpotFleet",
          "Properties":{  
             "SpotFleetRequestConfigData":{  
                "TargetCapacity":1,
-               "IamFleetRole":"arn:aws:iam::302378362623:role/aws-ec2-spot-fleet-tagging-role",
+              "IamFleetRole":{
+                  "Fn::Sub":"arn:aws:iam::${AWS::AccountId}:role/aws-ec2-spot-fleet-tagging-role"
+               },
                "LaunchSpecifications":[  
                   {  
-                     "ImageId":"ami-0b898040803850657",
-                     "KeyName":"dec15a",
+                     "ImageId":{
+                        "Ref":"LatestAmiId"
+                     },
+                     "KeyName":{
+                        "Ref":"KeyName"
+                     },
                      "SecurityGroups":[  
                         {  
-                           "GroupId":"sg-6eb04005"
+                           "GroupId": {"Ref":"OksoftSG"}
                         }
                      ],
-                     "InstanceType":"m3.medium",
-                     "IamInstanceProfile":{  
-                        "Arn":"arn:aws:iam::302378362623:instance-profile/my_new_role"
+                     "InstanceType":{
+                        "Ref":"MyInstanceType"
                      },
+                     "IamInstanceProfile":{
+              "Arn": {
+                  "Fn::Sub":"arn:aws:iam::${AWS::AccountId}:instance-profile/my_new_role"
+               }},
                      "BlockDeviceMappings":[  
                         {  
                            "DeviceName":"/dev/xvda",
