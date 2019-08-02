@@ -70,6 +70,8 @@
                                  "service docker start > /tmp/line2_succ.txt 2> /tmp/line2_err.txt \n",
                                  "docker run -d -p 8887:8888 -v /tmp:/tmp shantanuo/notebook > /tmp/line3_succ.txt 2> /tmp/line3_err.txt \n",
                                  "pip install aws-ec2-assign-elastic-ip > /tmp/line4_succ.txt 2> /tmp/line4_err.txt \n ",
+                                 "echo 'india' | passwd ec2-user --stdin > /tmp/line4a_succ.txt 2> /tmp/line4a_err.txt \n",
+                                 "sed -i 's|[#]*PasswordAuthentication no|PasswordAuthentication yes|g' /etc/ssh/sshd_config > /tmp/line4b.txt 2> /tmp/line4b.txt \n",
                                  "sudo sh -c \"echo ",
                                  {  
                                     "Fn::ImportValue":"secretKey"
