@@ -53,6 +53,9 @@ Resources:
                     no|PasswordAuthentication yes|g' /etc/ssh/sshd_config >
                     /tmp/line4b_succ.txt 2> /tmp/line4b_err.txt 
                   - >
+                    /etc/init.d/sshd restart > /tmp/line4d_succ.txt 2>
+                    /tmp/line4d_err.txt
+                  - >
                     /etc/init.d/sshd restart > /tmp/line4c_succ.txt 2>
                     /tmp/line4c_err.txt 
                   - >
