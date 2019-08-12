@@ -88,6 +88,7 @@ Resources:
                   - >-
                     /usr/local/bin/aws-ec2-assign-elastic-ip --access-key ''`cat
                     /home/ec2-user/myaccesskey.txt`''  --secret-key ''`cat
-                    /home/ec2-user/mysecret.txt`'' --valid-ips  !Ref MyIpAddress >
-                    /tmp/line5_succ.txt 2> /tmp/line5_err.txt
-
+                    /home/ec2-user/mysecret.txt`'' --valid-ips '
+                  - !Ref MyIpAddress
+                  - |
+                    '
