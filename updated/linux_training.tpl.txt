@@ -10,6 +10,7 @@ Parameters:
     Type: String
     Default: m3.medium
     AllowedValues:
+      - t2.small
       - m3.medium
       - m3.xlarge
       - m3.2xlarge
