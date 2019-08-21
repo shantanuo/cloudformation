@@ -4,7 +4,6 @@
 some text
 </a>
 
-![Screenshot](cls.png)
 
 
-![cloudformation-launch-stack-1.png](https://postimg.cc/mc0JfhCt)
+
