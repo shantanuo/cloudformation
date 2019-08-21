@@ -5,4 +5,4 @@ some text
 </a>
 
 
-[cloudformation-launch-stack-1.png](https://postimg.cc/mc0JfhCt)
+![cloudformation-launch-stack-1.png](https://postimg.cc/mc0JfhCt)
