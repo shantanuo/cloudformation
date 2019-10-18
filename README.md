@@ -17,7 +17,7 @@ Audit trail using Elastic
 
 Daily Cost alert
 
-<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=training&templateURL=https://datameetgeobk.s3.amazonaws.com/cftemplates/cost_function.yaml">
+<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=training&templateURL=https://datameetgeobk.s3.amazonaws.com/cftemplates/daily_cost.yaml">
  <img src="cls.png" width="144" height="27" />
 </a>
 
@@ -28,3 +28,4 @@ Create Restricted User
 <a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=training&templateURL=https://datameetgeobk.s3.amazonaws.com/cftemplates/restricted_user.yaml">
  <img src="cls.png" width="144" height="27" />
 </a>
+ 
