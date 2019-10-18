@@ -21,6 +21,8 @@ Daily Cost alert
  <img src="cls.png" width="144" height="27" />
 </a>
 
+<hr>
+
 Create Restricted User
 
 <a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=training&templateURL=https://datameetgeobk.s3.amazonaws.com/cftemplates/restricted_user.yaml">
