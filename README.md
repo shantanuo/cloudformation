@@ -29,6 +29,7 @@ Create Restricted User
  <img src="cls.png" width="144" height="27" />
 </a>
  
+<hr>
 
 Athena Queries
 
