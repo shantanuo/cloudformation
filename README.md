@@ -33,7 +33,7 @@ Create Restricted User
 
 Athena Queries
 
-<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=athenaSavedQuery&templateURL=https://datameetgeobk.s3.amazonaws.com/cftemplates/athena_saved_query_blog_partition_parquet.tpl">
+<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=athenaSavedQuery&templateURL=https://datameetgeobk.s3.amazonaws.com/cftemplates/athena_saved_query_blog_partition_parquet2.tpl">
  <img src="cls.png" width="144" height="27" />
 </a>
  
