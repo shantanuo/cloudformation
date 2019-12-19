@@ -45,3 +45,14 @@ Athena Queries
 
 https://aws.amazon.com/blogs/big-data/extract-transform-and-load-data-into-s3-data-lake-using-ctas-and-insert-into-statements-in-amazon-athena/
 
+<hr>
+
+Delete current stack after 5 minutes
+
+<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=athenaSavedQuery&templateURL=https://datameetgeobk.s3.amazonaws.com/cftemplates/delete_after_5m.template">
+ <img src="cls.png" width="144" height="27" />
+</a>
+
+Scheduling automatic deletion of AWS CloudFormation stacks
+
+https://aws.amazon.com/blogs/infrastructure-and-automation/scheduling-automatic-deletion-of-aws-cloudformation-stacks/
