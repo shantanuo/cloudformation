@@ -13,6 +13,12 @@ Audit trail using Elastic
  <img src="cls.png" width="144" height="27" />
 </a>
 
+Visualising AWS CloudTrail Logs using EKK stack
+
+https://blog.powerupcloud.com/visualizing-aws-cloudtrail-logs-using-elk-stack-e3d3b399af43
+
+
+
 <hr>
 
 Daily Cost alert
@@ -37,3 +43,7 @@ Athena Queries
  <img src="cls.png" width="144" height="27" />
 </a>
  
+ Extract, Transform and Load data into S3 data lake using CTAS and INSERT INTO statements in Amazon Athena
+
+https://aws.amazon.com/blogs/big-data/extract-transform-and-load-data-into-s3-data-lake-using-ctas-and-insert-into-statements-in-amazon-athena/
+
