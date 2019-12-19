@@ -7,18 +7,12 @@ EC2 Instance on SPOT
 
 <hr>
 
-Audit trail using Elastic
+Create Restricted User
 
-<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=training&templateURL=https://datameetgeobk.s3.amazonaws.com/cftemplates/audit_trail_combined8.yaml.txt">
+<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=training&templateURL=https://datameetgeobk.s3.amazonaws.com/cftemplates/restricted_user.yaml">
  <img src="cls.png" width="144" height="27" />
 </a>
-
-Visualising AWS CloudTrail Logs using EKK stack
-
-https://blog.powerupcloud.com/visualizing-aws-cloudtrail-logs-using-elk-stack-e3d3b399af43
-
-
-
+ 
 <hr>
 
 Daily Cost alert
@@ -29,12 +23,16 @@ Daily Cost alert
 
 <hr>
 
-Create Restricted User
+Audit trail using Elastic
 
-<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=training&templateURL=https://datameetgeobk.s3.amazonaws.com/cftemplates/restricted_user.yaml">
+<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=training&templateURL=https://datameetgeobk.s3.amazonaws.com/cftemplates/audit_trail_combined8.yaml.txt">
  <img src="cls.png" width="144" height="27" />
 </a>
- 
+
+Visualising AWS CloudTrail Logs using EKK stack
+
+https://blog.powerupcloud.com/visualizing-aws-cloudtrail-logs-using-elk-stack-e3d3b399af43
+
 <hr>
 
 Athena Queries
