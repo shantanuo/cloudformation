@@ -33,6 +33,8 @@ Visualising AWS CloudTrail Logs using EKK stack
 
 https://blog.powerupcloud.com/visualizing-aws-cloudtrail-logs-using-elk-stack-e3d3b399af43
 
+https://arkadiyt.com/2019/11/12/detecting-manual-aws-console-actions/?ck_subscriber_id=521868220
+
 <hr>
 
 Athena Queries
