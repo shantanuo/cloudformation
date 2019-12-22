@@ -58,3 +58,20 @@ Delete current stack after 5 minutes
 Scheduling automatic deletion of AWS CloudFormation stacks
 
 https://aws.amazon.com/blogs/infrastructure-and-automation/scheduling-automatic-deletion-of-aws-cloudformation-stacks/
+
+
+<hr>
+
+Other templates:
+
+
+https://aws.amazon.com/blogs/machine-learning/exploring-images-on-social-media-using-amazon-rekognition-and-amazon-athena/
+https://aws-bigdata-blog.s3.amazonaws.com/artifacts/EyeOfCustomer/EyeOfCustomer.yaml
+
+https://aws.amazon.com/blogs/machine-learning/build-a-social-media-dashboard-using-machine-learning-and-bi-services/
+https://s3.amazonaws.com/serverless-analytics/SocialMediaAnalytics-blog/deploy.yaml
+
+https://aws.amazon.com/blogs/machine-learning/building-an-nlp-powered-search-index-with-amazon-textract-and-amazon-comprehend/
+https://github.com/aws-samples/amazon-textract-comprehend-OCRimage-search-and-analyze
+https://aws-ml-blog.s3.amazonaws.com/artifacts/NLP-powered-textract-comprehend/template-export-textract.yml
+
