@@ -75,3 +75,8 @@ https://aws.amazon.com/blogs/machine-learning/building-an-nlp-powered-search-ind
 https://github.com/aws-samples/amazon-textract-comprehend-OCRimage-search-and-analyze
 https://aws-ml-blog.s3.amazonaws.com/artifacts/NLP-powered-textract-comprehend/template-export-textract.yml
 
+eye of customer
+
+<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=athenaSavedQuery&templateURL=https://datameetgeobk.s3.amazonaws.com/cftemplates/EyeOfCustomer_updated.yaml.txt">
+ <img src="cls.png" width="144" height="27" />
+</a>
