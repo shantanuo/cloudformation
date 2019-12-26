@@ -62,21 +62,16 @@ https://aws.amazon.com/blogs/infrastructure-and-automation/scheduling-automatic-
 
 <hr>
 
-Other templates:
-
-
-https://aws.amazon.com/blogs/machine-learning/exploring-images-on-social-media-using-amazon-rekognition-and-amazon-athena/
-https://aws-bigdata-blog.s3.amazonaws.com/artifacts/EyeOfCustomer/EyeOfCustomer.yaml
-
-https://aws.amazon.com/blogs/machine-learning/build-a-social-media-dashboard-using-machine-learning-and-bi-services/
-https://s3.amazonaws.com/serverless-analytics/SocialMediaAnalytics-blog/deploy.yaml
-
-https://aws.amazon.com/blogs/machine-learning/building-an-nlp-powered-search-index-with-amazon-textract-and-amazon-comprehend/
-https://github.com/aws-samples/amazon-textract-comprehend-OCRimage-search-and-analyze
-https://aws-ml-blog.s3.amazonaws.com/artifacts/NLP-powered-textract-comprehend/template-export-textract.yml
-
 eye of customer
 
 <a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=athenaSavedQuery&templateURL=https://datameetgeobk.s3.amazonaws.com/cftemplates/EyeOfCustomer_updated.yaml.txt">
  <img src="cls.png" width="144" height="27" />
 </a>
+
+Add a Lambda Trigger and start node service as explained here...
+
+https://aws.amazon.com/blogs/machine-learning/build-a-social-media-dashboard-using-machine-learning-and-bi-services/
+
+If you need secure elastic service:
+
+https://github.com/aws-samples/amazon-textract-comprehend-OCRimage-search-and-analyze
