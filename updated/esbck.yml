@@ -1,0 +1,40 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Infrastructure for setting up ES snapshots'
+ 
+Resources:
+  EsSnapshotBucket:
+    Type: AWS::S3::Bucket
+ 
+  EsSnapshotRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: "Allow"
+            Principal:
+              Service:
+                - "es.amazonaws.com"
+            Action:
+              - "sts:AssumeRole"
+      Policies:
+        - PolicyName: "es-snapshot-pol1"
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action: "s3:ListBucket"
+                Resource: !GetAtt EsSnapshotBucket.Arn
+        - PolicyName: "es-snapshot-pol2"
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - "s3:GetObject"
+                  - "s3:PutObject"
+                  - "s3:DeleteObject"
+                  - "iam:PassRole"
+                Resource: !Sub
+                  - '${bucket}/*'
+                  - bucket: !GetAtt EsSnapshotBucket.Arn
