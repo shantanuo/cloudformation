@@ -38,3 +38,8 @@ Resources:
                 Resource: !Sub
                   - '${bucket}/*'
                   - bucket: !GetAtt EsSnapshotBucket.Arn
+Outputs:
+  RoleArn:
+    Value: !GetAtt EsSnapshotRole.Arn
+    Export:
+      Name: EsSnapshotRoleArn
