@@ -1,12 +1,20 @@
 AWSTemplateFormatVersion: "2010-09-09"
-Description: "My API Gateway and Lambda function"
+Description: "Gateway and Lambda function for mailgun API"
+
+Parameters:
+  myUrl:
+    Type: String
+    Description: Enter the URL that you got from mailgun
+  myAuth:
+    Type: String
+    Description: Enter the Authentication api:key-xxx
 
 Resources:
   apiGateway:
     Type: "AWS::ApiGateway::RestApi"
     Properties:
-      Name: "my-api2"
-      Description: "My API"
+      Name: "EmailThis"
+      Description: "connect to lambda function"
   apiGatewayRootMethod:
     Type: "AWS::ApiGateway::Method"
     Properties:
@@ -50,10 +58,10 @@ Resources:
             import urllib3
             import urllib.request
             import urllib.parse
-            import json
+            import json, os
 
             url = event['url']
-            email = event.get('email', 'shantanu.oak@gmail.com')
+            email = event.get('email', 'shantanu.oak+mailgun@gmail.com')
             title = event.get('title', 'backup')
 
             url1 = urllib.parse.unquote(url)
@@ -64,16 +72,16 @@ Resources:
                         .get_content_charset(failobj='utf-8'))
 
             http = urllib3.PoolManager()
-            url = "https://api.mailgun.net/v3/sandbox3d9e97b71bec47f9af3dfc3d994902e9x.mailgun.org/messages"
+            url = os.environ['myUrl'] 
 
             params = {"from": "Excited User <excited-user@example.com>",
                       "to": email,
                       "subject": title,
-                      "text": "Testing some awesomness with attachments!",
+                      "text": "EmailThis service from mailgun",
                       "html": myfile_content}
 
             auth_headers = urllib3.util.make_headers(
-                basic_auth='api:key-082907a870ef09b66eb8bd2d50ada57301')
+                basic_auth= os.environ['myAuth'] )
 
             r = http.request(
                 "POST",
@@ -82,13 +90,17 @@ Resources:
                 fields=params
             )
 
-      Description: "My function"
+      Description: "EmailThis"
       FunctionName: furl
       Handler: "index.handler"
       MemorySize: 128
       Role: !GetAtt "lambdaIAMRole.Arn"
       Runtime: "python3.6"
       Timeout: 10
+      Environment:
+        Variables:
+          myUrl: !Ref myUrl
+          myAuth: !Ref myAuth
 
   lambdaApiGatewayInvoke:
     Type: "AWS::Lambda::Permission"
