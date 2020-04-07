@@ -83,3 +83,19 @@ https://aws.amazon.com/blogs/machine-learning/build-a-social-media-dashboard-usi
 If you need secure elastic service:
 
 https://github.com/aws-samples/amazon-textract-comprehend-OCRimage-search-and-analyze
+
+
+
+<hr>
+
+emailThis
+
+<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=athenaSavedQuery&templateURL=https://datameetgeobk.s3.amazonaws.com/cftemplates/furl.yaml">
+ <img src="cls.png" width="144" height="27" />
+</a>
+
+service similar to
+
+emailthis.me 
+
+
