@@ -90,7 +90,7 @@ https://github.com/aws-samples/amazon-textract-comprehend-OCRimage-search-and-an
 
 emailThis
 
-<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=emailThis&templateURL=https://datameetgeobk.s3.amazonaws.com/cftemplates/furl.yaml">
+<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=emailThis&templateURL=https://datameetgeobk.s3.amazonaws.com/cftemplates/furl.yaml.txt">
  <img src="cls.png" width="144" height="27" />
 </a>
 
