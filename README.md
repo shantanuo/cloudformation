@@ -84,7 +84,9 @@ If you need secure elastic service:
 
 https://github.com/aws-samples/amazon-textract-comprehend-OCRimage-search-and-analyze
 
+More advance features including Rekognition:
 
+https://aws.amazon.com/blogs/compute/creating-a-searchable-enterprise-document-repository/
 
 <hr>
 
