@@ -76,11 +76,15 @@ eye of customer
  <img src="cls.png" width="144" height="27" />
 </a>
 
+This template is based on this article:
+
+https://aws.amazon.com/blogs/machine-learning/exploring-images-on-social-media-using-amazon-rekognition-and-amazon-athena/
+
 Add a Lambda Trigger and start node service as explained here...
 
 https://aws.amazon.com/blogs/machine-learning/build-a-social-media-dashboard-using-machine-learning-and-bi-services/
 
-If you need secure elastic service:
+If you need a secure elastic service:
 
 https://github.com/aws-samples/amazon-textract-comprehend-OCRimage-search-and-analyze
 
