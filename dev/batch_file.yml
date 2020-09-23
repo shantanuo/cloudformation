@@ -1,0 +1,188 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Creates a POC AWS Batch environment, includes IAM resources and Batch.
+Parameters:
+  Environment:
+    Type: String
+    Description: 'Environment Name'
+    Default: Dev
+  QueueName:
+    Type: String
+    Description: 'Name of Queue to be created'
+    Default: MyQueue
+  VPCCidr:
+    Type: String
+    Description: 'Cidr Block of the VPC, allows for ssh access internally.'
+    Default: '10.0.0.0/8'
+    MinLength: "9"
+    MaxLength: "18"
+    AllowedPattern: "(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})/(\\d{1,2})"
+    ConstraintDescription: "Must be valid CIDR notation (i.e. x.x.x.x/x)."
+  VPC:
+    Type: AWS::EC2::VPC::Id
+    Description: 'VPC ID to boot compute into'
+  Subnets:
+    Type: List<AWS::EC2::Subnet::Id>
+    Description: 'List of Subnets to boot into'
+  AMI:
+    Description: ECS Optimized AMI ID
+    Type: AWS::SSM::Parameter::Value<String>
+    Default: /aws/service/ecs/optimized-ami/amazon-linux/recommended/image_id
+  Ec2KeyPair:
+    Type: AWS::EC2::KeyPair::KeyName
+    Description: 'Ec2KeyPair to use for Compute Environment'
+  StartImageName:
+    Type: String
+    Description: 'Name and tag of Start Container Image'
+    Default: 'batchpocstart:latest'
+
+  KeyAccess:
+    Type: String
+    Description: 'access to dynamoDB table'
+  KeySecret:
+    Type: String
+    Description: 'access to dynamoDB table'
+  Region:
+    Type: String
+    Description: 'Region of dynamoDB table'
+    Default: 'us-east-1'
+
+Resources:
+  BatchContainerIAMRole:
+    Type: 'AWS::IAM::Role'
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - 
+            Effect: 'Allow'
+            Principal:
+              Service:
+                - 'ecs-tasks.amazonaws.com'
+            Action:
+              - 'sts:AssumeRole'
+      Policies:
+        - 
+          PolicyName: 'SubmitBatch'
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - 
+                Effect: 'Allow'
+                Action:
+                  - 'batch:SubmitJob'
+                Resource: '*'
+  BatchServiceRole:
+    Type: 'AWS::IAM::Role'
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - 
+            Effect: 'Allow'
+            Principal:
+              Service:
+                - 'batch.amazonaws.com'
+            Action:
+              - 'sts:AssumeRole'
+      ManagedPolicyArns:
+        - 'arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole'
+  BatchInstanceIAMRole:
+    Type: 'AWS::IAM::Role'
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - 
+            Effect: 'Allow'
+            Principal:
+              Service:
+                - 'ec2.amazonaws.com'
+            Action:
+              - 'sts:AssumeRole'
+      ManagedPolicyArns:
+        - 'arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role'
+  BatchInstanceProfile:
+    Type: "AWS::IAM::InstanceProfile"
+    Properties: 
+      Path: /
+      Roles:
+        - !Ref BatchInstanceIAMRole
+      InstanceProfileName: !Join [ "", [ "BatchIAM", !Ref Environment ] ]
+  BatchSecGroup:
+    Type: "AWS::EC2::SecurityGroup"
+    Properties: 
+      GroupDescription: BatchGroup
+      SecurityGroupEgress:
+        - CidrIp: 0.0.0.0/0
+          IpProtocol: '-1'
+      SecurityGroupIngress:
+        - CidrIp: !Ref VPCCidr
+          IpProtocol: tcp
+          FromPort: '22'
+          ToPort: '22'
+      VpcId: !Ref VPC
+  BatchCompute:
+    Type: "AWS::Batch::ComputeEnvironment"
+    Properties:
+      Type: Managed
+      ServiceRole: !Ref BatchServiceRole
+      ComputeEnvironmentName: !Join [ "", ["BatchPOC-", !Ref Environment]]
+      ComputeResources: 
+        MaxvCpus: 24
+        SecurityGroupIds: 
+          - !Ref BatchSecGroup
+        Subnets: !Ref Subnets
+        Type: Ec2
+        MinvCpus: 0
+        ImageId: !Ref AMI
+        InstanceRole: !Ref BatchInstanceProfile
+        InstanceTypes: 
+          - optimal
+        Ec2KeyPair: !Ref Ec2KeyPair
+        Tags: { "Name": "Batch POC" }
+        DesiredvCpus: 0
+      State: ENABLED
+  Queue:
+    Type: "AWS::Batch::JobQueue"
+    Properties:
+      ComputeEnvironmentOrder: 
+        - ComputeEnvironment: !Join [ "", ["BatchPOC-", !Ref Environment]]
+          Order: 1
+      Priority: 1
+      State: "ENABLED"
+      JobQueueName: !Ref QueueName
+    DependsOn: BatchCompute
+  StartJob:
+    Type: "AWS::Batch::JobDefinition"
+    Properties:
+      Type: Container
+      ContainerProperties: 
+        Environment:
+          - Name: access
+            Value: !Ref KeyAccess
+          - Name: secret
+            Value: !Ref KeySecret
+          - Name: region
+            Value: !Ref Region
+        Command: 
+          - python3 
+          - git-urls.py
+        Memory: 128
+        JobRoleArn: !Ref BatchContainerIAMRole
+        Vcpus: 1
+        Image: !Ref StartImageName
+      JobDefinitionName: Start
+      RetryStrategy: 
+        Attempts: 1
+
+Outputs:
+  QueueOutput:
+    Value: !Ref Queue
+    Description: Queue ARN
+    Export:
+      Name: 'QueueARN'
+  JobOutput:
+    Value: !Ref StartJob
+    Description: start job arn
+    Export:
+      Name: 'StartJobARN'
