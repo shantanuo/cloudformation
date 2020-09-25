@@ -59,7 +59,7 @@ https://aws.amazon.com/blogs/big-data/extract-transform-and-load-data-into-s3-da
 
 Submit Job to Batch 
 
-<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=athenaSavedQuery&templateURL=https://datameetgeobk.s3.amazonaws.com/cftemplates/submit_job.yaml">
+<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=SubmitJob&templateURL=https://datameetgeobk.s3.amazonaws.com/cftemplates/submit_job.yaml">
  <img src="cls.png" width="144" height="27" />
 </a>
 
