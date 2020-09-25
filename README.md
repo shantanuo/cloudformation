@@ -57,6 +57,16 @@ https://aws.amazon.com/blogs/big-data/extract-transform-and-load-data-into-s3-da
 
 <hr>
 
+Submit Job to Batch 
+
+<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=athenaSavedQuery&templateURL=https://datameetgeobk.s3.amazonaws.com/cftemplates/submit_job.yaml">
+ <img src="cls.png" width="144" height="27" />
+</a>
+
+Create compute environment, set a queue and also add a daily cron to run any docker image with given parameters.
+
+<hr>
+
 Delete current stack after 5 minutes
 
 <a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=athenaSavedQuery&templateURL=https://datameetgeobk.s3.amazonaws.com/cftemplates/delete_after_5m.template">
