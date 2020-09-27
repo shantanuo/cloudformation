@@ -66,6 +66,15 @@ Submit Job to Batch
 Create compute environment, set a queue and also add a daily cron to run any docker image with given parameters.
 
 <hr>
+Backup MySQL database
+
+<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=MySQLtoS3&templateURL=https://datameetgeobk.s3.amazonaws.com/cftemplates/dms.yml">
+ <img src="cls.png" width="144" height="27" />
+</a>
+
+Export MySQL tables to S3 in CSV format
+
+<hr>
 
 Delete current stack after 5 minutes
 
