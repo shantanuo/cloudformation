@@ -1,7 +1,7 @@
 # cloudformation
 Linux EC2 Instance on SPOT
 
-<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=trainingLinux&templateURL=https://datameetgeobk.s3.amazonaws.com/cftemplates/LinuxInstance.template">
+<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=linux&templateURL=https://datameetgeobk.s3.amazonaws.com/cftemplates/LinuxInstance.template">
  <img src="cls.png" width="144" height="27" />
 </a>
 
@@ -9,7 +9,7 @@ Linux EC2 Instance on SPOT
 
 Windows EC2 Instance on SPOT
 
-<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=trainingWindows&templateURL=https://datameetgeobk.s3.amazonaws.com/cftemplates/windows.template-u6.txt">
+<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=windows&templateURL=https://datameetgeobk.s3.amazonaws.com/cftemplates/windows.template-u6.txt">
  <img src="cls.png" width="144" height="27" />
 </a>
 
@@ -17,7 +17,7 @@ Windows EC2 Instance on SPOT
 
 Create Restricted User
 
-<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=restrictedUser&templateURL=https://datameetgeobk.s3.amazonaws.com/cftemplates/restricted_user.yaml">
+<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=restricteduser&templateURL=https://datameetgeobk.s3.amazonaws.com/cftemplates/restricted_user.yaml">
  <img src="cls.png" width="144" height="27" />
 </a>
  
@@ -25,7 +25,7 @@ Create Restricted User
 
 Daily Cost alert
 
-<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=dailyCostAlert&templateURL=https://datameetgeobk.s3.amazonaws.com/cftemplates/daily_cost.yaml">
+<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=costalert&templateURL=https://datameetgeobk.s3.amazonaws.com/cftemplates/daily_cost.yaml">
  <img src="cls.png" width="144" height="27" />
 </a>
 
@@ -33,7 +33,7 @@ Daily Cost alert
 
 Audit trail using Elastic
 
-<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=auditTrail&templateURL=https://datameetgeobk.s3.amazonaws.com/cftemplates/audit_trail_combined8.yaml.txt">
+<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=audit&templateURL=https://datameetgeobk.s3.amazonaws.com/cftemplates/audit_trail_combined8.yaml.txt">
  <img src="cls.png" width="144" height="27" />
 </a>
 
@@ -47,7 +47,7 @@ https://arkadiyt.com/2019/11/12/detecting-manual-aws-console-actions/?ck_subscri
 
 Athena Queries
 
-<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=athenaSavedQuery&templateURL=https://datameetgeobk.s3.amazonaws.com/cftemplates/athena_saved_query_blog_partition_parquet3.yaml">
+<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=athena&templateURL=https://datameetgeobk.s3.amazonaws.com/cftemplates/athena_saved_query_blog_partition_parquet3.yaml">
  <img src="cls.png" width="144" height="27" />
 </a>
  
@@ -59,7 +59,7 @@ https://aws.amazon.com/blogs/big-data/extract-transform-and-load-data-into-s3-da
 
 Submit Job to Batch 
 
-<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=submitJob&templateURL=https://datameetgeobk.s3.amazonaws.com/cftemplates/submit_job.yaml">
+<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=submitjob&templateURL=https://datameetgeobk.s3.amazonaws.com/cftemplates/submit_job.yaml">
  <img src="cls.png" width="144" height="27" />
 </a>
 
@@ -69,7 +69,7 @@ Create compute environment, set a queue and also add a daily cron to run any doc
 
 Backup MySQL database
 
-<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=mySqlToS3&templateURL=https://datameetgeobk.s3.amazonaws.com/cftemplates/dms.yml">
+<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=mysqltos3&templateURL=https://datameetgeobk.s3.amazonaws.com/cftemplates/dms.yml">
  <img src="cls.png" width="144" height="27" />
 </a>
 
@@ -79,7 +79,7 @@ Export MySQL tables to S3 in CSV format
 
 Delete current stack after 5 minutes
 
-<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=deleteCurrent&templateURL=https://datameetgeobk.s3.amazonaws.com/cftemplates/delete_after_5m.template">
+<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=deletecurrent&templateURL=https://datameetgeobk.s3.amazonaws.com/cftemplates/delete_after_5m.template">
  <img src="cls.png" width="144" height="27" />
 </a>
 
@@ -92,7 +92,7 @@ https://aws.amazon.com/blogs/infrastructure-and-automation/scheduling-automatic-
 
 eye of customer
 
-<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=eyeOfCustomer&templateURL=https://datameetgeobk.s3.amazonaws.com/cftemplates/EyeOfCustomer_updated.yaml.txt">
+<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=eyeofcustomer&templateURL=https://datameetgeobk.s3.amazonaws.com/cftemplates/EyeOfCustomer_updated.yaml.txt">
  <img src="cls.png" width="144" height="27" />
 </a>
 
@@ -116,7 +116,7 @@ https://aws.amazon.com/blogs/compute/creating-a-searchable-enterprise-document-r
 
 emailThis
 
-<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=emailThis&templateURL=https://datameetgeobk.s3.amazonaws.com/cftemplates/furl.yaml.txt">
+<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=emailthis&templateURL=https://datameetgeobk.s3.amazonaws.com/cftemplates/furl.yaml.txt">
  <img src="cls.png" width="144" height="27" />
 </a>
 
