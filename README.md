@@ -120,5 +120,5 @@ emailThis
  <img src="cls.png" width="144" height="27" />
 </a>
 
-service similar to emailthis.me service using mailgun.com api as shown in this image...
+service similar to emailthis.me using mailgun.com api as shown in this image...
 https://datameetgeobk.s3.amazonaws.com/cftemplates/images/mailgun_api_url.png
