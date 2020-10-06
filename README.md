@@ -73,7 +73,7 @@ Backup MySQL database
  <img src="cls.png" width="144" height="27" />
 </a>
 
-Export MySQL tables to S3 in CSV format
+Export MySQL tables to S3 in CSV format More info: https://medium.com/@shantanuo/change-data-capture-using-dms-201ccae2bc14
 
 <hr>
 
