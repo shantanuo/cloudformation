@@ -76,6 +76,7 @@ Backup MySQL database
 </a>
 
 Export MySQL tables to S3 in CSV format 
+
 Medium article link: https://medium.com/@shantanuo/change-data-capture-using-dms-201ccae2bc14
 
 <hr>
@@ -124,5 +125,6 @@ emailThis
 </a>
 
 service similar to emailthis.me using mailgun.com api.
+
 Medium article link: https://medium.com/@shantanuo/emailthis-bookmark-using-serverless-api-40146c35df07
 
