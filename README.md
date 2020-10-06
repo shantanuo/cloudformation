@@ -43,6 +43,8 @@ https://blog.powerupcloud.com/visualizing-aws-cloudtrail-logs-using-elk-stack-e3
 
 https://arkadiyt.com/2019/11/12/detecting-manual-aws-console-actions/?ck_subscriber_id=521868220
 
+Medium Article link: https://medium.com/@shantanuo/cloudfromation-template-for-visualising-aws-cloudtrail-logs-ae700ac908bb
+
 <hr>
 
 Athena Queries
@@ -73,7 +75,8 @@ Backup MySQL database
  <img src="cls.png" width="144" height="27" />
 </a>
 
-Export MySQL tables to S3 in CSV format More info: https://medium.com/@shantanuo/change-data-capture-using-dms-201ccae2bc14
+Export MySQL tables to S3 in CSV format 
+Medium article link: https://medium.com/@shantanuo/change-data-capture-using-dms-201ccae2bc14
 
 <hr>
 
@@ -120,5 +123,6 @@ emailThis
  <img src="cls.png" width="144" height="27" />
 </a>
 
-service similar to emailthis.me using mailgun.com api as shown in this image...
-https://datameetgeobk.s3.amazonaws.com/cftemplates/images/mailgun_api_url.png
+service similar to emailthis.me using mailgun.com api.
+Medium article link: https://medium.com/@shantanuo/emailthis-bookmark-using-serverless-api-40146c35df07
+
