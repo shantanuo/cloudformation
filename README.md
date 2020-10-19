@@ -96,7 +96,7 @@ https://aws.amazon.com/blogs/infrastructure-and-automation/scheduling-automatic-
 
 eye of customer
 
-<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=eyeofcustomer&templateURL=https://datameetgeobk.s3.amazonaws.com/cftemplates/EyeOfCustomer_updated.yaml.txt">
+<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=eyeofcustomer&templateURL=https://datameetgeobk.s3.amazonaws.com/cftemplates/ai-driven-social-media-dashboard-updated.template">
  <img src="cls.png" width="144" height="27" />
 </a>
 
