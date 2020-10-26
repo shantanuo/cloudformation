@@ -128,3 +128,14 @@ service similar to emailthis.me using mailgun.com api.
 
 Medium article link: https://medium.com/@shantanuo/emailthis-bookmark-using-serverless-api-40146c35df07
 
+<hr>
+
+Glue Crwaler
+
+<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=emailthis&templateURL=https://datameetgeobk.s3.amazonaws.com/cftemplates/glue_crawler.yml">
+ <img src="cls.png" width="144" height="27" />
+</a>
+
+Submit the path of S3 file and it will create athena table.
+
+
