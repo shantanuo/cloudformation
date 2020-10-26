@@ -132,7 +132,7 @@ Medium article link: https://medium.com/@shantanuo/emailthis-bookmark-using-serv
 
 Glue Crwaler
 
-<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=emailthis&templateURL=https://datameetgeobk.s3.amazonaws.com/cftemplates/glue_crawler.yml">
+<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=myglue&templateURL=https://datameetgeobk.s3.amazonaws.com/cftemplates/glue_crawler.yml">
  <img src="cls.png" width="144" height="27" />
 </a>
 
