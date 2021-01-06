@@ -33,7 +33,7 @@ Daily Cost alert
 
 Audit trail using Elastic
 
-<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=audit&templateURL=https://datameetgeobk.s3.amazonaws.com/cftemplates/audit_trail_combined8.yaml.txt">
+<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=audit&templateURL=https://datameetgeobk.s3.amazonaws.com/cftemplates/audit_trail_combined9.yaml">
  <img src="cls.png" width="144" height="27" />
 </a>
 
