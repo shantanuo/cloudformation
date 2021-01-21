@@ -53,9 +53,15 @@ Athena Queries
  <img src="cls.png" width="144" height="27" />
 </a>
  
- Extract, Transform and Load data into S3 data lake using CTAS and INSERT INTO statements in Amazon Athena
+Queries collected from these sites:
+
+https://aws.amazon.com/blogs/big-data/analyzing-data-in-s3-using-amazon-athena/
 
 https://aws.amazon.com/blogs/big-data/extract-transform-and-load-data-into-s3-data-lake-using-ctas-and-insert-into-statements-in-amazon-athena/
+
+https://aws.amazon.com/premiumsupport/knowledge-center/set-file-number-size-ctas-athena/
+
+https://docs.aws.amazon.com/athena/latest/ug/getting-started.html
 
 <hr>
 
